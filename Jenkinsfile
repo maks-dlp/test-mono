@@ -1,4 +1,5 @@
 pipeline {
+  agent any
   stages {
     stage('Build Frontend') {
       agent { 
@@ -12,7 +13,7 @@ pipeline {
         beforeAgent true
       }
       steps {
-        dir('frontend') {
+        dir('packages/client') {
           sh '''
             npm --version
             node --version
